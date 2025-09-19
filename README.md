@@ -1,25 +1,9 @@
-# Idee per CashMate
+# CashMate
 
-- Pagina di Login (Id utente e password) / Registrazione
-- Pagina principale:
-   - Saldo account
-   - Id del conto corrente
-   - IBAN
-   - grafici andamento conto (Spese, entrate, divise per categorie)
-- Sezioni:
-  - Conto (Pagina principale)
-  - Carte (associate al conto):
-    - Immagine virtuale della carte
-    - limiti max che può spendere la carta
-    - Blocca carta pulsante
-  - Operazioni:
-    - Bonifici (italiano, estero)
-    - Pagamento delle tasse
-    - ricarica cellulare
-  - Parla con noi:
-    - Contatti telefonici
-    - chat
-  - Profilo:
-    - sicurezza (cambia password, email, telefono)
-    - dati (documenti foto, foto persona, email, telefono)
-     
+This project was developed with a university collegue during the lessons of the course: "Tecnologie e Sistemi Web".
+
+The application is an online banking system where users can open a checking account and perform several operations, such as IBAN payments and money transfers using their account name.
+
+# Used technologies
+- Express.js for the server infrastructure
+- HTML and CSS for the user presetation
