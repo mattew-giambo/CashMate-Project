@@ -1,0 +1,262 @@
+:root{
+    --white-color: #f1f1f1;
+    --cornsilk-color: #fffce2;
+
+    --jet-color: rgb(55, 53, 54);
+    --red-color: #ce3818;
+    --brown-color: #655743;
+    --caramel-color: rgb(235, 132, 59);
+    --blue-color: #269acb;
+    --blue-strong-color: #4c9bbd;
+
+    --text-color: #1c1b1b;
+    --davy-gray-color: #535252;
+    --taupe-gray-color: #9c9a99;
+
+    --platinum-color: #e1dedb;
+}
+
+body{
+    background-color: var(--white-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--white-color);
+    padding-bottom: 3rem;
+}
+
+.header-container {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 4px rgba(55, 53, 54, 0.3);
+
+    position: relative;
+}
+
+.welcome-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#welcome-message {
+    font-weight: 700;
+    color: var(--jet-color);
+    letter-spacing: 0.5px;
+    font-size: 4rem;
+}
+
+.mid-container{
+    display: flex;
+    justify-content: center;
+    pointer-events: all;
+    opacity: 1;
+    gap: 10rem;
+}
+
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-container {
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: var(--platinum-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 600px
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-container form label {
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--jet-color)
+}
+
+.form-container form input {
+    padding: 0.8rem;
+    border: 1px solid rgba(55, 53, 54, 0.6);
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: border-color 0.4s;
+    color: var(--jet-color);
+    padding-left: 3rem;
+    padding-right: 2rem;
+    width: 100%;
+}
+
+.form-container form input:focus {
+    outline: none;
+    border-color: rgba(235, 132, 59, 0.6);
+}
+
+.form-container form input::placeholder{
+    color: rgba(55, 53, 54, 0.6);
+}
+
+.form-container form button {
+    padding: 0.8rem;
+    background-color: var(--jet-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    transition: color 0.4s;
+}
+
+.form-container form button:hover {
+    background-color: var(--caramel-color);
+    color: var(--jet-color);
+}
+
+.errore-messaggio {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--red-color);
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Animazione per l'opacity e ritardo per la visibility */
+}
+
+.errore-messaggio.active {
+    opacity: 1; /* Rende il messaggio visibile */
+    visibility: visible; /* Imposta la visibilità a "visibile" */
+    transition: opacity 0.3s ease, visibility 0s linear 0s; /* Rimuove il ritardo per la visibility */
+}
+
+.container-invia h1{
+    color: var(--jet-color)
+}
+.container-invia h2{
+    color: rgba(55, 53, 54, 0.6);
+    margin-bottom: 1rem;
+}
+.saldo-container {
+    background-color: var(--platinum-color);
+    border-radius: 0.75rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 9rem;
+
+    right: 0;
+}
+.saldo-header .conto-id {
+    font-size: 1.2rem;
+    color: var(--jet-color);
+    margin-bottom: 1rem;
+}
+.saldo-header .conto-id strong{
+    font-size: 1.2rem;
+    color: var(--caramel-color);
+}
+.saldo-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+  
+.saldo-valore {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--jet-color);
+}
+.form-container form .annulla-op-button{
+    background-color: var(--red-color);
+    color: var(--white-color);
+}
+.form-container form .annulla-op-button:hover {
+    background-color: #a12d13;
+    color: var(--white-color);
+}
+.form-importo{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.form-importo span{
+    color: rgba(55, 53, 54, 0.6);
+    font-size: 1.4rem;
+    position: absolute;
+    left: 1rem;
+}
+@media (max-width: 768px) {
+    .main-container{
+        padding: 1rem;
+        padding-top: 0;
+        margin-bottom: 4rem;
+        flex-direction: column;
+    }
+    .header-container{
+        justify-content: center;
+    }
+    #welcome-message {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--jet-color);
+        letter-spacing: 0.5px;
+    }
+    .mid-container{
+        flex-direction: column;
+        align-items: center;
+        gap:2rem;
+    }
+    .container-invia{
+        min-width: 0;
+    }
+    .form-container{
+        width: 360px;
+        min-width: 0;
+    }
+    .form-container form label{
+        margin-bottom: 0;
+        font-size: 1.1rem;
+    }
+    .form-container form input{
+        padding: 0.6rem;
+        padding-left: 3rem;
+        padding-right: 1rem;
+    }
+    .form-container form input::placeholder{
+        font-size: 13px;
+    }
+    .form-container form button{
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+    .container-invia h1{
+        font-size: 1.3rem;
+    }
+    .saldo-valore{
+        font-size: 1.5rem;
+    }
+    .container-invia h2{
+        font-size: 1.2rem;
+    }
+}

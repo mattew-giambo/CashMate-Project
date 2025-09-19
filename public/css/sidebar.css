@@ -1,0 +1,320 @@
+/* 
+   Definizione delle variabili globali CSS.
+*/
+:root{
+    --white-color: #fafafa;
+    --cornsilk-color: #fffce2;
+
+    --jet-color: #373536;
+    --red-color: #ce3818;
+    --brown-color: #655743;
+    --caramel-color: #eb843b;
+    --blue-color: #269acb;
+    --blue-strong-color: #4c9bbd;
+
+    --text-color: #1c1b1b;
+    --davy-gray-color: #535252;
+    --taupe-gray-color: #9c9a99;
+
+    --platinum-color: #e1dedb;
+
+    --sidebar-background-color: var(--davy-gray-color);
+    --logo-color: var(--cornsilk-color);
+    --toggler-color: var(--jet-color);
+    --toggler-background-color: var(--cornsilk-color);
+    --toggler-hover-color: var(--caramel-color);
+    --nav-link-color: var(--cornsilk-color);
+    --nav-link-hover-color: var(--caramel-color);
+    --tooltip-background-color: var(--cornsilk-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    background: var(--platinum-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* SideBar */
+.sidebar {
+    position: fixed;
+    left:0;
+    top: 0;
+    width: 270px;
+    margin: 16px;
+    border-radius: 16px;
+    background: var(--sidebar-background-color);
+    height: calc(100vh - 32px); /* consente un margine di 16px sopra e sotto */
+    transition: all 0.4s ease;
+    z-index: 1000;
+}
+
+/* Stato "chiuso" della sidebar (ridotta) */
+.sidebar.collapsed { 
+    width: 85px;
+}
+
+/* Header della sidebar: contiene logo e pulsante toggler */
+.sidebar .sidebar-header { 
+    display: flex;
+    position: relative;
+    padding: 25px 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo SVG nella sidebar */
+.sidebar-header svg {
+    width: 75px;
+    height: 75px;
+    fill: var(--logo-color);
+}
+
+/* Stile del pulsante toggler */
+.sidebar-header .toggler {
+    height: 35px;
+    width: 35px;
+    color: var(--toggler-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    background: var(--toggler-background-color);
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: 0.4s ease;
+}
+
+/* Posizionamento del toggler per visualizzazione desktop */
+.sidebar-header .sidebar-toggler {
+    position: absolute;
+    right: 20px;
+}
+
+/* Il toggler per il menu responsive sarà visibile solo nelle media query */
+.sidebar-header .menu-toggler {
+    display: none;
+}
+
+/* Quando la sidebar è chiusa, il pulsante viene traslato */
+.sidebar.collapsed .sidebar-header .toggler {
+    transform: translate(-5px, 65px);
+}
+
+/* Hover del pulsante toggler */
+.sidebar-header .toggler:hover {
+    background: var(--toggler-hover-color);
+}
+
+/* Icona interna del toggler */
+.sidebar-header .toggler span {
+    font-size: 1.75rem;
+    transition: 0.4s ease;
+}
+
+/* Rotazione dell’icona quando la sidebar è chiusa */
+.sidebar.collapsed .sidebar-header .toggler span {
+    transform: rotate(180deg);
+}
+
+/* Contenitore della lista di navigazione */
+.sidebar-nav .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 15px;
+    transform: translateY(15px);
+    transition: 0.4s ease;
+}
+
+/* Quando la sidebar è chiusa, sposta la nav primaria */
+.sidebar.collapsed .sidebar-nav .primary-nav {
+    transform: translateY(65px);
+}
+
+/* Stile dei singoli link della sidebar */
+.sidebar-nav .nav-link {
+    color: var(--nav-link-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    border-radius: 8px;
+    padding: 12px 15px;
+    text-decoration: none;
+    transition: 0.4s ease;
+}
+
+/* Colore specifico per i link di uscita */
+.sidebar-nav .nav-exit {
+    color: var(--red-color);
+}
+
+/* Maggiore arrotondamento per link quando la sidebar è chiusa */
+.sidebar.collapsed .sidebar-nav .nav-link {
+    border-radius: 12px;
+}
+
+/* Etichetta testuale dei link */
+.sidebar .sidebar-nav .nav-link .nav-label {
+    transition: opacity 0.3s ease;
+}
+
+/* Quando la sidebar è chiusa, il testo è nascosto e non cliccabile */
+.sidebar.collapsed .sidebar-nav .nav-link .nav-label {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Hover sui link della navigazione */
+.sidebar-nav .nav-link:hover {
+    color: var(--sidebar-background-color);
+    background: var(--nav-link-hover-color);
+}
+
+.sidebar-nav .nav-exit:hover {
+    color: var(--cornsilk-color);
+    background: var(--red-color);
+}
+
+/* Gli elementi di navigazione sono posizionati in modo relativo per supportare i tooltip */
+.sidebar-nav .nav-item {
+    position: relative;
+}
+
+/* Tooltip dei link, visibili solo quando la sidebar è chiusa e in hover */
+.sidebar-nav .nav-tooltip {
+    position: absolute;
+    top: -10px;
+    left: calc(100% + 25px);
+    opacity: 0;
+    display: none;
+    pointer-events: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    color: #151A2D;
+    background: var(--tooltip-background-color);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip visibili solo quando la sidebar è collassata */
+.sidebar.collapsed .sidebar-nav .nav-tooltip {
+    display: block;
+}
+
+/* Tooltip visibili al passaggio del mouse */
+.sidebar-nav .nav-item:hover .nav-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(50%);
+    transition: all 0.4s ease;
+}
+
+/* Posizionamento della sezione secondaria (es. logout) in fondo alla sidebar */
+.sidebar-nav .secondary-nav {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+
+/* Quando la sidebar è contratta -> '+' quando sono nodi nel DOM adiacenti, vedi stessa altezza in HTML */
+.sidebar.collapsed + .main-container {
+    margin-left: 114px;
+}
+
+/* Contenitore principale della pagina */
+.main-container {
+    margin-left: 296px; /* stessa larghezza della sidebar */
+    transition: margin-left 0.4s ease;
+    padding: 1.1rem;
+    background-color: var(--platinum-color);
+    min-height: 100vh;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    /* Sidebar adattata a layout mobile/tablet */
+    .sidebar {
+        height: 70px;
+        margin: 13px;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        width: calc(100% - 26px);
+        max-height: calc(100vh - 26px);
+    }
+
+    /* Quando la sidebar è attiva nel layout mobile, si attiva lo scroll */
+    .sidebar.menu-active { /* ricorda: la notazione .sidebar.menu-active è usata per selezionare un elemento HTML che ha entrambe le classi sidebar e menu-active */
+        overflow-y: auto;
+    }
+
+    /* Header fisso in alto nella sidebar mobile */
+    .sidebar .sidebar-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-radius: 16px;
+        background: var(--sidebar-background-color);
+        padding: 10px 10px;
+    }
+
+    .sidebar-header svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Nascondi toggler desktop e tooltip in modalità mobile */
+    .sidebar-header .sidebar-toggler,
+    .sidebar-nav .nav-item:hover .nav-tooltip { 
+        display: none;
+    }
+    
+    /* Mostra il menu toggler per dispositivi mobili */
+    .sidebar-header .menu-toggler {
+        display: flex;
+        height: 30px;
+        width: 30px;
+    }
+
+    .sidebar-header .menu-toggler span {
+        font-size: 1.3rem;
+    }
+
+    .sidebar .sidebar-nav .nav-list {
+        padding: 0 10px;
+    }
+
+    /* Riduci padding e font per elementi di navigazione su schermi piccoli */
+    .sidebar-nav .nav-link {
+        gap: 10px;
+        padding: 10px;
+        font-size: 0.94rem;
+    }
+
+    .sidebar-nav .nav-link .nav-icon {
+        font-size: 1.37rem;
+    }
+
+    /* Riposizionamento della sezione secondaria nella sidebar mobile */
+    .sidebar-nav .secondary-nav {
+        position: relative;
+        bottom: 0;
+        margin: 40px 0 30px;
+    }
+
+    /* Contenitore principale adattato per mobile */
+    .main-container {
+        margin-top: 96px; /* stessa larghezza della sidebar */
+        margin-left: 0 !important;
+        transition: margin-left 0.3s ease;
+        padding: 2rem;
+        background-color: var(--platinum-color);
+        min-height: 100vh;
+    }
+}

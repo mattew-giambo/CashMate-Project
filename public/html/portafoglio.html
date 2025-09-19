@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta name="description" content="Il tuo portafoglio">
+    <meta name="keywords" content="CashMate gestione finanze, risparmio, spese, denaro">
+    <meta name="author" content="Matteo Giamberardini & Ilaria Casolino">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portafoglio - CashMate | La Tua Banca Digitale</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/cm-ico.png">
+    
+    <!-- Script per la validazione del codice di autenticazione -->
+    <script src="/js/validateAuthCode.js"></script>
+    <script>
+        validateAuthCode()
+    </script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/portafoglio.css">
+
+    <!-- Collegamento ai font di Google per le icone -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24..48,100..700,0..1,0..200">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24..48,100..700,0..1,0..200">
+
+    <!-- Script per gestire la sidebar e la logica della pagina -->
+    <script src="/js/sidebar.js" defer></script>
+    <script src="/js/barra-portafoglio.js" defer></script>
+    <script src="/js/portafoglio.js" defer></script>
+    <script src="/js/dati-portafoglio.js" defer></script>
+    <script src="/js/dati-table-transazioni-portafoglio.js" defer></script>
+    <script src="/js/logout-action.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+    <body>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <header class="sidebar-header">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.000000 1024.000000" preserveAspectRatio="xMidYMid meet">
+    
+                        <g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
+                        fill="#currentColor" stroke="none">
+                        <path d="M2475 7275 c-214 -28 -408 -86 -600 -179 -348 -168 -610 -404 -817
+                        -738 -309 -498 -400 -1185 -232 -1765 153 -529 535 -1002 1024 -1266 435 -235
+                        990 -320 1477 -226 460 89 846 301 1168 641 156 166 244 286 845 1158 172 250
+                        489 707 704 1015 514 739 510 732 535 801 79 209 -10 434 -207 527 -62 30 -75
+                        32 -173 32 -101 0 -108 -1 -181 -38 -53 -26 -91 -53 -123 -89 -45 -51 -227
+                        -307 -595 -838 -498 -720 -1050 -1511 -1291 -1850 -209 -295 -486 -479 -840
+                        -556 -119 -27 -409 -27 -529 0 -283 61 -492 171 -685 361 -244 239 -364 518
+                        -382 885 -18 378 109 745 344 990 104 109 186 170 318 235 307 152 660 160
+                        992 25 184 -76 337 -201 502 -413 58 -74 102 -120 142 -146 157 -105 363 -91
+                        497 34 133 123 167 308 88 469 -60 120 -275 368 -432 497 -268 219 -560 353
+                        -918 420 -143 27 -482 35 -631 14z"/>
+                        <path d="M8907 7270 c-56 -14 -133 -56 -178 -97 -22 -20 -97 -118 -167 -217
+                        -69 -100 -244 -347 -387 -551 -144 -203 -489 -694 -767 -1090 -674 -961 -771
+                        -1098 -783 -1101 -5 -1 -131 130 -280 292 -345 377 -375 398 -560 399 -80 0
+                        -97 -4 -157 -32 -85 -40 -152 -107 -192 -193 -25 -54 -31 -81 -34 -155 -7
+                        -154 19 -204 219 -425 67 -74 270 -300 450 -501 221 -246 346 -378 382 -402
+                        116 -77 273 -89 399 -30 108 51 75 8 808 1053 222 316 473 674 558 795 85 121
+                        227 324 315 450 417 598 671 960 746 1069 123 175 136 208 136 336 0 97 -2
+                        110 -32 172 -41 87 -114 160 -199 200 -54 25 -81 31 -152 34 -48 2 -104 -1
+                        -125 -6z"/>
+                        <path d="M8965 5660 c-117 -38 -219 -143 -255 -260 -20 -63 -20 -90 -18 -1035
+                        l3 -970 29 -60 c78 -159 229 -245 404 -232 179 14 328 148 362 326 14 73 14
+                        1849 0 1922 -24 127 -101 229 -217 286 -66 33 -85 37 -161 40 -66 2 -101 -2
+                        -147 -17z"/>
+                        </g>
+                        </svg>
+                <button class="toggler sidebar-toggler">
+                    <span class="material-symbols-outlined">dashboard</span>
+                </button>
+                <button class="toggler menu-toggler">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+            </header>
+
+            <!-- Navigazione principale della sidebar -->
+            <nav class="sidebar-nav">
+                <ul class="nav-list primary-nav">
+                    <li class="nav-item">
+                    <a href="/dashboard/conto" class="nav-link">
+                        <span class="material-symbols-outlined">account_balance</span>
+                        <span class="nav-label">Il mio conto</span>
+                    </a>
+                    <span class="nav-tooltip">Il mio conto</span>
+                    </li>
+                    <li class="nav-item">
+                    <a href="/dashboard/portafoglio" class="nav-link">
+                        <span class="material-symbols-outlined">account_balance_wallet</span>
+                        <span class="nav-label">Portafoglio</span>
+                    </a>
+                    <span class="nav-tooltip">Portafoglio</span>
+                    </li>
+                    <li class="nav-item">
+                    <a href="/dashboard/operazioni" class="nav-link">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                        <span class="nav-label">Operazioni</span>
+                    </a>
+                    <span class="nav-tooltip">Operazioni</span>
+                    </li>
+                </ul>
+                <!-- Navigazione secondaria per il profilo e uscita -->
+                <ul class="nav-list secondary-nav">
+                    <li class="nav-item">
+                    <a href="/dashboard/profilo" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">account_circle</span>
+                        <span class="nav-label">Profilo</span>
+                    </a>
+                    <span class="nav-tooltip">Profilo</span>
+                    </li>
+                    <li class="nav-item">
+                    <a id="esci-link" href="/" class="nav-link nav-exit">
+                        <span class="nav-icon material-symbols-rounded">logout</span>
+                        <span class="nav-label">Esci</span>
+                    </a>
+                    <span class="nav-tooltip">Esci</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Main -->
+        <main class="main-container">
+            <!-- Header della pagina -->
+            <div class="header-container">
+                <div class="welcome-container">
+                    <span id="welcome-message">Portafoglio</span>
+                </div>
+            </div>
+
+            <!-- Sezione della carta -->
+            <div class="top-container">
+                <div class="la-mia-carta">
+                    <h1>La mia carta</h1>
+                    <div class="carta">
+                        <header class="header-carta">
+                            <img src="/assets/chip-carta.png" alt="" class="chip" />
+                            <span class="logo"><img src="/assets/logo-mastercard.png" alt="" /></span>
+                        </header>
+                        <div class="carta-details">
+                            <div class="nome-numero">
+                            <h5 class="numero" id="num_carta-value"></h5>
+                            <h5 class="nome" id="intestatario-value"></h5>
+                            </div>
+                            <div class="valid-date">
+                            <h6>Valid Thru</h6>
+                            <h5 id="scad_carta"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sezione limite mensile della carta -->
+                <div class="limite-mensile">
+                    <h1>Limite mensile</h1>
+                    <div class="limite">
+                        <span> Limite attuale <strong id="limite-attuale"></strong></span>
+                    </div>
+                    <div class="aggiorna-limite">
+                        <label for="limite-carta">Limite Carta (€)</label>
+                        <input type="number" id="limite-carta" name="limite-carta" min="0" max="5000" step="1" value="1000"/>
+                    </div>
+                    <div class="div-button">
+                        <button id="aggiorna-carta-btn" class="btn aggiorna-carta-btn">Aggiorna</button>
+                        <button id="stato-carta-btn" class="btn"></button>
+                    </div>
+                    <p id="messaggio"></p>
+                </div>     
+            </div> 
+
+            <!-- Sezione disponibilità mensile -->
+            <div class="mid-container">
+                <div class="disponibilita">
+                    <h1>Disponibilità mensile</h1>
+                    <div class="saldo">
+                        <span>Disponibile: €<strong id="disponibile-barra"></strong></span>
+                        <span>Limite: €<strong id="limite-barra"></strong></span>
+                    </div>
+                    <div class="barra-progress">
+                        <div class="barra-utilizzo" id="percentuale-barra"></div>
+                    </div>
+                    <div class="percentuale"><span id="percentuale-barra-txt"></span> Utilizzato</div>
+                </div>
+            </div>
+
+            <!-- Sezione transazioni -->
+            <div id="transazioni" class="bottom-container">
+                <h2>Transazioni</h2>
+                <div class="transazioni-recenti">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Data</th>
+                                <th>Importo</th>
+                                <th>Tipo (Entrata/Uscita)</th>
+                                <th>Destinatario</th>
+                                <th>Mittente</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-transazioni">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Popup per dettagli transazione -->
+        <div class="popup-container" id="popup">
+            <div class="popup-content">
+                <h2>Transazione n° <span id="transazione-id-popup"></span></h2>
+                <div class="details-container">
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="material-symbols-rounded">payments</span>
+                            <span class="label">Importo:</span>
+                            <span class="value" id="importo-popup"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="material-symbols-rounded">calendar_month</span>
+                            <span class="label">Data:</span>
+                            <span class="value" id="data-popup"></span>
+                        </div>      
+                        <div class="detail-item">
+                            <span class="material-symbols-rounded">category</span>
+                            <span class="label">Tipo:</span>
+                            <span class="value" id="tipo-popup"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="material-symbols-rounded">group</span>
+                            <span class="label">Mittente:</span>
+                            <span class="value" id="mittente-popup"></span>
+                        </div>  
+                        <div class="detail-item">
+                            <span class="material-symbols-rounded">group</span>
+                            <span class="label">Destinatario:</span>
+                            <span class="value" id="destinatario-popup"></span>
+                        </div> 
+                        <div class="detail-item">
+                            <span class="material-symbols-rounded">description</span>
+                            <span class="label">Causale:</span>
+                            <span class="value" id="descrizione-popup"></span>
+                        </div>           
+                    </div>
+                </div>
+                <div class="close-btn-wrapper"> 
+                    <button id="close-popup-btn" class="close-popup">Chiudi</button>
+                </div>  
+            </div>
+        </div> 
+    </body>
+</html>

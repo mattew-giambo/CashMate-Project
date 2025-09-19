@@ -1,0 +1,295 @@
+:root{
+    --white-color: #fafafa;
+    --cornsilk-color: #fffce2;
+
+    --jet-color: rgb(55, 53, 54);
+    --red-color: #ce3818;
+    --brown-color: #655743;
+    --caramel-color: #eb843b;
+    --blue-color: #269acb;
+    --blue-strong-color: #4c9bbd;
+
+    --text-color: #1c1b1b;
+    --davy-gray-color: #535252;
+    --taupe-gray-color: #9c9a99;
+
+    --platinum-color: #e1dedb;
+
+    --transition: all 0.4s ease;
+}
+
+body{
+    background-color: var(--white-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--white-color);
+    padding-bottom: 5rem;
+}
+
+.header-container {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 4px rgba(55, 53, 54, 0.3);
+
+    position: relative;
+}
+
+.welcome-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#welcome-message {
+    font-weight: 700;
+    color: var(--jet-color);
+    letter-spacing: 0.5px;
+    font-size: 4rem;
+}
+
+.mid-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+h4 {
+    font-size: 1.5rem;
+    padding-left: .5rem;
+    padding-bottom: 1rem;
+}
+.details-container {
+    flex: 1;
+    background-color: var(--white-color);
+    border-radius: 12px;
+}
+
+.details-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--platinum-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background-color: var(--white-color);
+    font-size: 0.95rem;
+    color: var(--jet-color);
+}
+
+.detail-item .material-symbols-rounded, .detail-item .material-symbols-outlined {
+    font-size: 1.4rem;
+    color: var(--caramel-color);
+}
+
+.detail-item .label {
+    font-weight: 600;
+    color: var(--jet-color);
+}
+
+.detail-item .value {
+    margin-left: auto;
+    color: var(--davy-gray-color);
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--platinum-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+}
+
+.form-container input{
+    padding: 0.75rem 3rem;
+    border-radius: 10px;
+    background-color: var(--white-color);
+    font-size: 0.95rem;
+    color: var(--jet-color);
+    border: solid 1px rgba(55, 53, 54, 0.5);
+    width: 100%;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: rgba(235, 132, 59, 0.8);
+}
+
+.form-container form{
+    display: flex;
+    flex-direction: column;
+}
+.form-container input::placeholder{
+    color: rgba(55, 53, 54, 0.8);
+}
+
+.form-container .form-item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+.form-container .form-item span{
+    color: var(--caramel-color);
+    font-size: 1.4rem;
+    position: absolute;
+    left: 1rem;
+}
+.data-importo{
+    display: flex;
+    justify-content: flex-start;
+    gap: 5rem;
+}
+.submit-btn {
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    background-color: var(--jet-color);
+    color: var(--white-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.4s ease;
+    box-shadow: 0 4px 10px rgba(235, 132, 59, 0.2);
+}
+
+.submit-btn:hover {
+    background-color: var(--caramel-color);
+    color: var(--jet-color);
+}
+
+
+/* Popup */
+.popup-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+}
+.popup-content{
+    border-radius: 20px;
+    background-color: var(--white-color);
+    padding: 2rem;
+    min-width: 60%;
+}
+.popup-content h2{
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.close-popup{
+    margin-top: 2rem;
+}
+.close-btn-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+#close-popup-btn{
+    background-color: var(--red-color);
+}
+#close-popup-btn:hover{
+    background-color: rgb(114, 32, 13);
+    color: var(--white-color);
+}
+
+.errore-messaggio {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--red-color);
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Animazione per l'opacity e ritardo per la visibility */
+}
+
+.errore-messaggio.active {
+    opacity: 1; /* Rende il messaggio visibile */
+    visibility: visible; /* Imposta la visibilità a "visibile" */
+    transition: opacity 0.3s ease, visibility 0s linear 0s; /* Rimuove il ritardo per la visibility */
+}
+
+@media (max-width: 768px)  {
+    .main-container{
+        padding: 1rem;
+        padding-top: 0;
+        gap: 2rem;
+        margin-bottom: 4rem;
+        flex-direction: column;
+    }
+    .header-container{
+        justify-content: center;
+    }
+    #welcome-message {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--jet-color);
+        letter-spacing: 0.5px;
+    }
+    .data-importo{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .form-container input{
+        font-size: 11px;
+    }
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .detail-item {
+        font-size: 0.75rem;
+        gap: 0.4rem;
+        padding: 0.6rem 0.8rem;
+        flex-wrap: wrap; 
+    }
+    
+    .detail-item .label,
+    .detail-item .value,
+    .detail-item .material-symbols-rounded {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .detail-item .value {
+        margin-left: auto;
+        flex-shrink: 1;
+    }
+    h4{
+        font-size: 1.3rem;
+    }
+    .popup-content{
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "cashmate",
+  "version": "1.0.0",
+  "description": "- Pagina di Login (Id utente e password) / Registrazione - Pagina principale:    - Saldo account    - Id del conto corrente    - IBAN    - grafici andamento conto (Spese, entrate, divise per categorie) - Sezioni:   - Conto (Pagina principale)   - Carte (associate al conto):     - Immagine virtuale della carte     - limiti max che può spendere la carta     - Blocca carta pulsante   - Operazioni:     - Bonifici (italiano, estero)     - Pagamento delle tasse     - ricarica cellulare   - Parla con noi:     - Contatti telefonici     - chat   - Profilo:     - sicurezza (cambia password, email, telefono)     - dati (documenti foto, foto persona, email, telefono)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/il-aria03/CashMate.git"
+  },
+  "author": "Matteo Giamberardini & Ilaria Casolino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/il-aria03/CashMate/issues"
+  },
+  "homepage": "https://github.com/il-aria03/CashMate#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "ibankit": "^1.6.5",
+    "mariadb": "^3.4.1",
+    "nodemailer": "^7.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

@@ -1,0 +1,97 @@
+/* 
+   Definizione delle variabili globali CSS.
+*/
+:root{
+    --white-color: rgb(250, 250, 250);
+    --cornsilk-color: #fffce2;
+
+    --jet-color: #373536;
+    --red-color: #ce3818;
+    --brown-color: #655743;
+    --caramel-color: #eb843b;
+    --blue-color: #269acb;
+    --blue-strong-color: #4c9bbd;
+
+    --text-color: #1c1b1b;
+    --davy-gray-color: #535252;
+    --taupe-gray-color: #9c9a99;
+
+    --platinum-color: #e1dedb;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-image: url("./../assets/background-404.svg");
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(3px); 
+    background-color: rgba(250, 250, 250, 0.7);
+}
+
+.container {
+    max-width: 600px;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 6rem;
+    color: var(--red-color);
+    margin: 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+p {
+    font-size: 1.2rem;
+    color: var(--davy-gray-color);
+}
+
+p strong{
+    font-size: 1.4rem;
+    color: var(--red-color);
+}
+
+a {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--white-color);
+    background-color: var(--jet-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+a:hover {
+    background-color: var(--caramel-color);
+    color: var(--jet-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    font-weight: bold;
+    font-size: 3rem;
+    color: var(--jet-color);
+    margin-bottom: 2rem;
+}
+
+.logo svg{
+    width: 10rem;
+    height: 10rem;
+    fill: var(--jet-color)
+}

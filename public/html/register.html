@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Casolino Ilaria & Giamberardini Matteo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registrazione - CashMate | La Tua Banca Digitale</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/cm-ico.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/js/menu-mobile.js" defer></script>
+    <script src="/js/register.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo"> 
+                <!-- SVG Logo -->
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                width="60" height="60" viewBox="0 0 1024.000000 1024.000000"
+                preserveAspectRatio="xMidYMid meet">
+
+                <g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
+                fill="#currentColor" stroke="none">
+                <path d="M2475 7275 c-214 -28 -408 -86 -600 -179 -348 -168 -610 -404 -817
+                -738 -309 -498 -400 -1185 -232 -1765 153 -529 535 -1002 1024 -1266 435 -235
+                990 -320 1477 -226 460 89 846 301 1168 641 156 166 244 286 845 1158 172 250
+                489 707 704 1015 514 739 510 732 535 801 79 209 -10 434 -207 527 -62 30 -75
+                32 -173 32 -101 0 -108 -1 -181 -38 -53 -26 -91 -53 -123 -89 -45 -51 -227
+                -307 -595 -838 -498 -720 -1050 -1511 -1291 -1850 -209 -295 -486 -479 -840
+                -556 -119 -27 -409 -27 -529 0 -283 61 -492 171 -685 361 -244 239 -364 518
+                -382 885 -18 378 109 745 344 990 104 109 186 170 318 235 307 152 660 160
+                992 25 184 -76 337 -201 502 -413 58 -74 102 -120 142 -146 157 -105 363 -91
+                497 34 133 123 167 308 88 469 -60 120 -275 368 -432 497 -268 219 -560 353
+                -918 420 -143 27 -482 35 -631 14z"/>
+                <path d="M8907 7270 c-56 -14 -133 -56 -178 -97 -22 -20 -97 -118 -167 -217
+                -69 -100 -244 -347 -387 -551 -144 -203 -489 -694 -767 -1090 -674 -961 -771
+                -1098 -783 -1101 -5 -1 -131 130 -280 292 -345 377 -375 398 -560 399 -80 0
+                -97 -4 -157 -32 -85 -40 -152 -107 -192 -193 -25 -54 -31 -81 -34 -155 -7
+                -154 19 -204 219 -425 67 -74 270 -300 450 -501 221 -246 346 -378 382 -402
+                116 -77 273 -89 399 -30 108 51 75 8 808 1053 222 316 473 674 558 795 85 121
+                227 324 315 450 417 598 671 960 746 1069 123 175 136 208 136 336 0 97 -2
+                110 -32 172 -41 87 -114 160 -199 200 -54 25 -81 31 -152 34 -48 2 -104 -1
+                -125 -6z"/>
+                <path d="M8965 5660 c-117 -38 -219 -143 -255 -260 -20 -63 -20 -90 -18 -1035
+                l3 -970 29 -60 c78 -159 229 -245 404 -232 179 14 328 148 362 326 14 73 14
+                1849 0 1922 -24 127 -101 229 -217 286 -66 33 -85 37 -161 40 -66 2 -101 -2
+                -147 -17z"/>
+                </g>
+                </svg>
+                <h2>CashMate</h2>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/chi-siamo">Chi Siamo</a></li>
+                    <li><a href="/login" class="cta-button">Accedi</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main-content">
+        <div class="registration-container">
+            <div class="registration-header">
+                <h1>Unisciti a CashMate</h1>
+                <p>Inizia il tuo viaggio verso una gestione finanziaria più intelligente</p>
+            </div>
+
+            <!-- Form di registrazione -->
+            <form id="registration-form" class="registration-form" method="post" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" maxlength="30" placeholder="Inserisci il tuo nome" required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$">
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome">Cognome</label>
+                        <input type="text" id="cognome" name="cognome" maxlength="40" placeholder="Inserisci il tuo cognome" required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$">
+                    </div>
+                    <div class="form-group">
+                        <label for="data_nascita">Data di Nascita</label>
+                        <input type="date" id="data_nascita" name="data_nascita" placeholder="GG/MM/AAAA" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="codice_fiscale">Codice Fiscale</label>
+                        <input type="text" id="codice_fiscale" name="codice_fiscale" placeholder="RSSMRA80A01H501Z" required pattern="[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]" maxlength="16">
+                    </div>
+                    <div class="form-group">
+                        <label for="citta">Città di Residenza</label>
+                        <input type="text" id="citta" name="citta" placeholder="Roma" pattern="^[A-Za-zÀ-ÿ' -]+$" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cap">CAP</label>
+                        <input type="text" id="cap" name="cap" placeholder="00000" pattern="\d{5}" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="indirizzo">Indirizzo</label>
+                        <input type="text" id="indirizzo" name="indirizzo" placeholder="Via Roma, 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numero_telefono">Numero di Telefono</label>
+                        <input type="tel" id="numero_telefono" name="numero_telefono" placeholder="3456784099" required pattern="\d{10}">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numero_documento">Numero Seriale (Carta D'Identità)</label>
+                        <input type="text" id="numero_documento" name="numero_documento" placeholder="CA00000AA" pattern="[A-Z0-9]{9}" maxlength="9" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="documento">Carica Documento d'Identità <small>(fronte-retro PDF)</small></label>
+                        <input type="file" id="documento" name="documento" accept=".pdf" required class="file-input">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="occupazione">Occupazione</label>
+                        <input type="text" id="occupazione" name="occupazione" placeholder="Libero professionista" pattern="[A-Za-zÀ-ÿ\s]+" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Inserisci la password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="conferma_password">Conferma Password</label>
+                        <input type="password" id="conferma_password" name="conferma_password" placeholder="Conferma la password" required>
+                    </div>
+                </div>
+
+                <div class="form-group terms">
+                    <label class="checkbox-container">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        Accetto i termini e le condizioni del servizio
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Inizia Subito</button>
+                    <button type="reset" class="btn-secondary">Reset</button>
+                </div>
+            </form>            
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-head">
+            <div class="footer-logo">
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                width="60" height="60" viewBox="0 0 1024.000000 1024.000000"
+                preserveAspectRatio="xMidYMid meet">
+
+                <g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
+                fill="#currentColor" stroke="none">
+                <path d="M2475 7275 c-214 -28 -408 -86 -600 -179 -348 -168 -610 -404 -817
+                -738 -309 -498 -400 -1185 -232 -1765 153 -529 535 -1002 1024 -1266 435 -235
+                990 -320 1477 -226 460 89 846 301 1168 641 156 166 244 286 845 1158 172 250
+                489 707 704 1015 514 739 510 732 535 801 79 209 -10 434 -207 527 -62 30 -75
+                32 -173 32 -101 0 -108 -1 -181 -38 -53 -26 -91 -53 -123 -89 -45 -51 -227
+                -307 -595 -838 -498 -720 -1050 -1511 -1291 -1850 -209 -295 -486 -479 -840
+                -556 -119 -27 -409 -27 -529 0 -283 61 -492 171 -685 361 -244 239 -364 518
+                -382 885 -18 378 109 745 344 990 104 109 186 170 318 235 307 152 660 160
+                992 25 184 -76 337 -201 502 -413 58 -74 102 -120 142 -146 157 -105 363 -91
+                497 34 133 123 167 308 88 469 -60 120 -275 368 -432 497 -268 219 -560 353
+                -918 420 -143 27 -482 35 -631 14z"/>
+                <path d="M8907 7270 c-56 -14 -133 -56 -178 -97 -22 -20 -97 -118 -167 -217
+                -69 -100 -244 -347 -387 -551 -144 -203 -489 -694 -767 -1090 -674 -961 -771
+                -1098 -783 -1101 -5 -1 -131 130 -280 292 -345 377 -375 398 -560 399 -80 0
+                -97 -4 -157 -32 -85 -40 -152 -107 -192 -193 -25 -54 -31 -81 -34 -155 -7
+                -154 19 -204 219 -425 67 -74 270 -300 450 -501 221 -246 346 -378 382 -402
+                116 -77 273 -89 399 -30 108 51 75 8 808 1053 222 316 473 674 558 795 85 121
+                227 324 315 450 417 598 671 960 746 1069 123 175 136 208 136 336 0 97 -2
+                110 -32 172 -41 87 -114 160 -199 200 -54 25 -81 31 -152 34 -48 2 -104 -1
+                -125 -6z"/>
+                <path d="M8965 5660 c-117 -38 -219 -143 -255 -260 -20 -63 -20 -90 -18 -1035
+                l3 -970 29 -60 c78 -159 229 -245 404 -232 179 14 328 148 362 326 14 73 14
+                1849 0 1922 -24 127 -101 229 -217 286 -66 33 -85 37 -161 40 -66 2 -101 -2
+                -147 -17z"/>
+                </g>
+                </svg>
+                <h2> CashMate</h2>
+            </div>
+            <div class="footer-nav">
+                <a href="https://github.com/il-aria03/CashMate" aria-label="Github">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"></path></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> CashMate. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <!-- Popup Successo -->
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <h2 id="hMessage"></h2>
+            <p id="pMessage"></p>
+            <div class="close-btn-wrapper"> 
+                <button id="close-popup-btn" class="submit-btn close-popup">Chiudi</button>
+            </div>  
+        </div>
+    </div>
+    
+    <!-- Popup Errore -->
+    <div class="popup-container" id="errorPopup">
+        <div class="popup-content">
+            <h2>Errore</h2>
+            <span id="errorMessage"></span>
+            <div class="close-btn-wrapper"> 
+                <button id="close-popup-btn" class="submit-btn close-popup">Chiudi</button>
+            </div>  
+        </div>
+    </div>
+</body>
+</html>
